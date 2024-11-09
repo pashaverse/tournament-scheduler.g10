@@ -1,3 +1,6 @@
+# Tournament Scheduler
+
+
 This repo is for Discrete Math Show-n-Tell activity by Group 10.
 
 Muhammad Fahad Pasha (@pashaverse) BSCS24147
@@ -8,4 +11,4 @@ Ahmed Riaz (@Ahmedriaz6) BSCS24071
 
 Muhammad Ali (@MuhammadAli42) BSCS24073
 
-# Tournament Scheduler
+
