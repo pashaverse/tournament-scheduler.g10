@@ -8,4 +8,4 @@ Ahmed Riaz (@Ahmedriaz6) BSCS24071
 
 Muhammad Ali (@MuhammadAli42) BSCS24073
 
-# tournament-scheduler.g10
+# Tournament Scheduler
