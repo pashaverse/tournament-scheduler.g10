@@ -30,6 +30,7 @@ Created "research" file.
 
 Nov 1st, 2024:
 (BSCS24147) I started researching on the topics "Definition and Purpose of Tournament Scheduling" and "Main Tournament Formats."
+(bscs24089) I started working on my assigned work that is the code for the showcasing of tournament schedule.
 
 (We were facing problems in getting familiar with Github. 
 Thus, it resulted in delay.
@@ -38,6 +39,7 @@ However, now after watching tutorials and taking help from seniors we are back o
 Nov 4th, 2024:
 (BSCS24147) I have done research on the first topic and started doing on the second one. 
 I am also thinking of coding a mini tournament scheduler. 
+(bscs24089) I did research on how round robin tournament works.
 
 Nov 8th, 2024
 We conducted a group discussion today in university. 
@@ -47,6 +49,26 @@ We helped each other and reached solution to each of our queries.
 Nov 10th, 2024
 (BSCS24147) I uploaded file in the research folder related to the topic.
 Now starting working on the slides and further research on different types of tournaments.
+(bscs24089) I did research on how single elimination tournament works.
 
 Nov 10th, 2024
 (BSCS24147) I added figures for slides.
+(bscs24089) I did research on how double elimination tournament works. 
+I was fascinated how the type divides the teams and how it mechanism works.
+
+Nov 20th,2024
+(bscs24089) I completed the initial setup of my code and thought of the 
+logic that would be the building block of the code.
+
+Nov 23th, 2024
+(bscs24089) I implemented the round robin tournament division system in my code.
+It prompt the user to enter the game type and number of teams.
+then it gives them the number of matches and tells which team would compete with
+which one.
+
+Nov 24th, 2024
+(bscs24089) I researched how double elimination tournament works as it would also be a part of my 
+code and divide the teams accordingly.
+
+Nov 25th, 2024
+(bscs24089) I started my work on the double elimination tournament.
