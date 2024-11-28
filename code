@@ -1,1 +1,143 @@
+//done by bscs24089//
 
+import os
+import random
+os.system('cls')
+def round_robin(no):# no of outcome = n(n+1)/2
+    init=1
+    print("Round Robin Tournament")
+    print("Number of matches:",no*(no-1)//2)
+    for i in range(no):
+        for j in range(init,no):
+            print(f"Team {i+1} vs Team {j+1}")
+        init+=1
+def single_elimination(arr,rounds):
+    if(len(arr)%2==0 and (len(arr)/2)%2==0):
+        print("Single Elimination Tournament\n")
+        for i in range(0,rounds):
+            print(f"\nRound {i+1}\n")
+            saved_pairs = []
+            winners = []
+            for i in range(0,len(arr)//2):
+                n1,n2=random.sample(arr,2)
+                saved_pairs.append((n1, n2))
+                print(f"Team {n1} vs Team {n2}")
+                arr.remove(n1)
+                arr.remove(n2)
+            for i in saved_pairs:
+                win = random.choice(i)
+                winners.append(win)
+            arr = winners
+            print("\nWinners of this round are:\n")
+            for i in range(0,len(winners)):
+                print(f"Team {winners[i]}")
+            if len(winners)==1:
+                print(f"Winner of the tournament is Team {winners[0]}")
+                break
+    else:
+        print("The inputted number of teams is not suitable for single elimination tournament")
+        print("Please enter the number of teams which is a power of 2")
+def double_eliminationm(arr,rounds):
+    if(len(arr)%2==0 and (len(arr)/2)%2==0):
+        eliminated = []
+        print("Double Elimination Tournament\n")
+        for i in range(0,rounds):
+            print(f"\nRound {i+1}\n")
+            saved_pairs = []
+            winners = []
+            # eliminated = []
+            for i in range(0,len(arr)//2):
+                n1,n2=random.sample(arr,2)
+                saved_pairs.append((n1, n2))
+                print(f"Team {n1} vs Team {n2}")
+                arr.remove(n1)
+                arr.remove(n2)
+            for i in saved_pairs:
+                win = random.choice(i)
+                winners.append(win)
+                eliminated.append(i[0] if i[0]!=win else i[1])
+            arr = winners
+            print("\nWinners of this round are:\n")
+            for i in range(0,len(winners)):
+                print(f"Team {winners[i]}")
+            print("Eliminated teams that are still in game:\n")
+            for i in range(0,len(eliminated)):
+                print(f"Team {eliminated[i]}")
+            # if len(winners)==1 and len(eliminated)==1:
+            #     print(f"Team {winners[0]} vs Team {eliminated[0]}")
+            # eliminated2 = eliminated
+            # saved_pairs2 = []
+            # winners2 = []
+            # print("\nmatches between eliminated teams:\n")
+            # for i in range(0,len(eliminated)//2):
+            #     n3,n4=random.sample(eliminated,2)
+            #     saved_pairs2.append((n3, n4))
+            #     print(f"Team {n3} vs Team {n4}")
+            #     eliminated2.remove(n3)
+            #     eliminated2.remove(n4)   
+            #     for i in saved_pairs2:
+            #         win2 = random.choice(i)
+            #         winners2.append(win2)
+            #     eliminated2 = winners2
+            #     for i in range(0,len(winners2)):
+            #         print(f"Team {winners2[i]}")
+            if len(eliminated) > 1:
+                print("\nLosers' Bracket Matches:")
+                saved_pairs2 = []
+                winners2 = []
+            for _ in range(len(eliminated) // 2):
+                n3, n4 = random.sample(eliminated, 2)
+                saved_pairs2.append((n3, n4))
+                print(f"Team {n3} vs Team {n4}")
+                eliminated.remove(n3)
+                eliminated.remove(n4)
+            for match in saved_pairs2:
+                winner2 = random.choice(match)
+                winners2.append(winner2)
+            eliminated = winners2
+            print("\nTeams surviving in the losers' bracket:")
+            print(", ".join(winners2))
+            if len(arr) == 1 and len(eliminated) == 1:
+                print("\n--- Final Match ---")
+                print(f"Team {arr[0]} (Winners' Bracket) vs Team {eliminated[0]} (Losers' Bracket)")
+                final_winner = random.choice([arr[0], eliminated[0]])
+                
+                if final_winner == arr[0]:
+                    print(f"\n{final_winner} wins the tournament!")
+                else:
+                    print(f"\nTeam {eliminated[0]} forces a second match!")
+                    final_winner = random.choice([arr[0], eliminated[0]])
+                    print(f"\n{final_winner} wins the tournament!")
+                return
+
+        print("\nTournament ended without determining a winner. Check input rounds.")
+    else:
+        print("The inputted number of teams is not suitable for double elimination tournament")
+        print("Please enter the number of teams which is a power of 2")
+
+print("Enter the name of the game from the following options:")
+set_game=["cricket","Football","baseball","valleyball","basketball"]
+for i in range(len(set_game)):
+    print(i+1,".",set_game[i])
+g=int(input("enter your choice:"))
+print("enter the type of the tournament:")
+set_type=["round robin","single elimination","double elimination","swiss","league"]
+for i in range(len(set_type)):
+    print(i+1,".",set_type[i])
+t=int(input("enter your choice:"))
+print("enter number of teams:")
+no=int(input("enter:"))
+if(no<2):
+    print("The number of teams should be greater than 1")
+    exit()
+arr=[0]*no
+for i in range(no):
+    arr[i]=i+1
+if(t==1):
+    round_robin(no)
+elif(t==2 or t==3):
+    rounds =int(input("Enter the number of rounds:"))
+    if(t==2):
+        single_elimination(arr,rounds)
+    else:
+        double_eliminationm(arr, rounds)
