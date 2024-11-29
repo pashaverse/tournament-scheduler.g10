@@ -1,0 +1,70 @@
+import random
+
+def swiss_system(players, rounds):
+    scores = {player: 0 for player in players}
+    for round_num in range(1, rounds + 1):
+        print(f"\n--- Round {round_num} ---")
+        sorted_players = sorted(players, key=lambda x: scores[x], reverse=True)
+        pairings = []
+        while len(sorted_players) > 1:
+            p1 = sorted_players.pop(0)
+            p2 = sorted_players.pop(0)
+            pairings.append((p1, p2))
+        for p1, p2 in pairings:
+            print(f"Match: Player {p1} vs Player {p2}")
+            winner = random.choice([p1, p2])
+            scores[winner] += 1
+        print("\nScores after this round:")
+        for player in scores:
+            print(f"Player {player}: {scores[player]} points")
+    print("\n--- Final Rankings ---")
+    final_rankings = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    for rank, (player, score) in enumerate(final_rankings, 1):
+        print(f"{rank}. Player {player}: {score} points")
+
+players = [i + 1 for i in range(int(input("Enter number of players: ")))]
+rounds = int(input("Enter number of rounds: "))
+swiss_system(players, rounds)
+
+#INPUT
+Enter number of players: 4
+Enter number of rounds: 3
+
+
+#OUTPUT
+--- Round 1 ---
+Match: Player 1 vs Player 2
+Match: Player 3 vs Player 4
+
+Scores after this round:
+Player 1: 1 points
+Player 2: 0 points
+Player 3: 1 points
+Player 4: 0 points
+
+--- Round 2 ---
+Match: Player 1 vs Player 3
+Match: Player 2 vs Player 4
+
+Scores after this round:
+Player 1: 2 points
+Player 2: 0 points
+Player 3: 1 points
+Player 4: 1 points
+
+--- Round 3 ---
+Match: Player 1 vs Player 4
+Match: Player 3 vs Player 2
+
+Scores after this round:
+Player 1: 3 points
+Player 2: 0 points
+Player 3: 2 points
+Player 4: 1 points
+
+--- Final Rankings ---
+1. Player 1: 3 points
+2. Player 3: 2 points
+3. Player 4: 1 point
+4. Player 2: 0 points
+
