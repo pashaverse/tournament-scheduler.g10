@@ -1,0 +1,41 @@
+Key Mathematical Constraints:
+
+Time Constraint Function: T(m,s) ≤ D
+Where:
+
+m = number of matches
+s = time slot duration
+D = total available days
+
+
+Venue Constraint: V ≥ ⌈m/t⌉
+Where:
+
+V = number of venues
+m = concurrent matches
+t = time slots per day
+
+
+Graph Coloring Solution:
+
+Vertices (V) = matches
+Edges (E) = conflicts
+Colors (C) = time slots
+
+Fairness Rules:
+For n teams where x,y ∈ {1...n}:
+|G(x) - G(y)| ≤ 1
+Simple Explanation for Presentation:
+
+First slide shows three main constraints:
+
+Time boxes show how matches must fit into available days
+Venue boxes show how we need enough courts/fields
+Connected circles show teams need fair treatment
+
+
+Second slide shows:
+
+Different colored circles represent matches
+Lines between circles show which matches can't be at same time
+Colors represent different time slots
